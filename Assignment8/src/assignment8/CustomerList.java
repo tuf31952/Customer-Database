@@ -15,6 +15,7 @@ public class CustomerList extends Customer{
     public CustomerList(){
         
         this.size = 4;
+        this.arr = new Customer[size];
         
     }
     
@@ -42,9 +43,19 @@ public class CustomerList extends Customer{
     }
     
     public void add(Customer c){
+                
+        Customer newarr[] = new Customer[arr.length+1];
         
-        this.size += 1;
-        this.arr[arr.length - 1] = c;
+        for(int i = 0; i<arr.length; i++){
+                
+                newarr[i] = arr[i];
+                
+        }
+        
+        newarr[arr.length - 1] = c;
+        
+        this.arr = newarr;
+        
         if (this.arr.length == this.size){
             
             Customer temparr[] = new Customer[size*2];
@@ -84,7 +95,7 @@ public class CustomerList extends Customer{
         double totalsales = 0;
         String result = "\n";
         
-        for (int i = 0; i<arr.length; i++){
+        for (int i = 3; i<arr.length; i++){
             
             result = result +  arr[i].toString();
             totalsales = totalsales + arr[i].getGrossSales();
@@ -104,8 +115,8 @@ public class CustomerList extends Customer{
         try {
             Scanner inputStream= new Scanner(file);
 
-            while(inputStream.hasNext()){
-                String data= inputStream.next();
+            while(inputStream.hasNextLine()){
+                String data= inputStream.nextLine();
                 Customer c1 = new Customer(data);
                 clist.add(c1);
         }
