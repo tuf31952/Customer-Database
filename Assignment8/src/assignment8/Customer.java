@@ -2,7 +2,7 @@ package assignment8;
 
 import java.util.stream.Stream;
 
-public class Customer extends Person{
+public class Customer extends Person implements Comparable<Customer>{
     
     private int customerID;
     private double grosssales;
@@ -51,7 +51,9 @@ public class Customer extends Person{
     }
     
     public String convertToCSV() {
-        return super.convertToCSV() + Stream.of(this.data2);
+        
+        return this.customerID+","+this.grosssales + super.convertToCSV() + "\n";
+        
     }
     
     public void copy(Customer c){
@@ -95,6 +97,7 @@ public class Customer extends Person{
         
         split = s.split(delimiter);
         
+        super.copy(split[2], split[3], split[4], split[5], split[6], split[7]);
         this.customerID = Integer.parseInt(split[0]);
         this.grosssales = Double.parseDouble(split[1]);
         
@@ -108,6 +111,11 @@ public class Customer extends Person{
              "\nGrossSales: " + this.grosssales + 
               "\n" + super.toString();
         
+    }
+
+    @Override
+    public int compareTo(Customer o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
