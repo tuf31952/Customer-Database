@@ -12,7 +12,6 @@ public class Person {
     private String city;
     private String state;
     private String zipCode;
-    private String data[] = {firstName, lastName, address, city, state, zipCode};
     
     public Person(String firstname, String lastname, String address, String city, String state, String zipcode){
         
@@ -97,8 +96,8 @@ public class Person {
     }
     
     public String convertToCSV() {
-        return Stream.of(this.data)
-            .collect(Collectors.joining(","));
+        
+        return this.firstName+","+this.lastName+","+this.address+","+this.city+","+this.state+","+this.zipCode+",";
     }
     
     public void copy(String firstname, String lastname, String address, String city, String state, String zipcode){
@@ -124,12 +123,12 @@ public class Person {
     @Override
     public String toString(){
         
-        return   "Firs Name: " + this.firstName + 
+        return  "First Name: " + this.firstName + 
                "\nLast Name: " + this.lastName + 
                "\nAddress:   " + this.address + 
                "\nCity:      " + this.city +  
                "\nState:     " + this.state +
-               "\nZipCode:   " + this.zipCode;
+               "\nZipCode:   " + this.zipCode + "\n\n";
         
     }
     
