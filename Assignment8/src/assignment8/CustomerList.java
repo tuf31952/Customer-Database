@@ -14,14 +14,13 @@ public class CustomerList extends Customer{
     
     public CustomerList(){
         
-        this.size = 4;
-        this.arr = new Customer[size];
+        this.size = 0;
         
     }
     
     public int size(){
         
-        return this.size;
+        return arr.length;
     
     }
     
@@ -52,7 +51,7 @@ public class CustomerList extends Customer{
                 
         }
         
-        newarr[arr.length - 1] = c;
+        newarr[arr.length] = c;
         
         this.arr = newarr;
         
@@ -75,7 +74,7 @@ public class CustomerList extends Customer{
     
     public Customer remove(int i){
         
-        if (i>this.arr.length){
+        if (i>=this.arr.length){
             
             return null;
             
@@ -86,6 +85,7 @@ public class CustomerList extends Customer{
                 this.arr[j] = this.arr[j+1];
             }
             return temp;
+            
         }
     }
     
@@ -95,7 +95,7 @@ public class CustomerList extends Customer{
         double totalsales = 0;
         String result = "\n";
         
-        for (int i = 3; i<arr.length; i++){
+        for (int i = 0; i<arr.length; i++){
             
             result = result +  arr[i].toString();
             totalsales = totalsales + arr[i].getGrossSales();
@@ -158,21 +158,13 @@ public class CustomerList extends Customer{
     
     public int indexOf(int id){
         
-        int min = 0;
-        int max = this.arr.length - 1;
-        while (min <= max) {
-            int mid = (min + max) / 2;
-            if (this.arr[mid].getID() < id) {
-            min = mid + 1;
-            } else if (this.arr[mid].getID() > id) {
-            max = mid - 1;
-            } else {
-            return mid;
-            }
+        for(int i = 0; i<arr.length-1;i++){
+            if (this.arr[i].getID() == id) {
+                return i;
+            } 
         }
         
-        return -(min + 1);
-        
+        return -1;
     }
     
     public boolean update(int id, double grossales){
