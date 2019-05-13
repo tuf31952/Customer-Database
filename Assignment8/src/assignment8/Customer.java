@@ -1,7 +1,5 @@
 package assignment8;
 
-import java.util.stream.Stream;
-
 public class Customer extends Person implements Comparable<Customer>{
     
     private int customerID;

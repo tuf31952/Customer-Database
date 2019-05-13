@@ -1,9 +1,6 @@
 
 package assignment8;
 
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 public class Person {
     
     private String firstName;

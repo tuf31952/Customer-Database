@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class CustomerList extends Customer{
@@ -150,8 +151,7 @@ public class CustomerList extends Customer{
     
     public void sort(){
         
-        
-        Arrays.sort(this.arr);
+        Arrays.sort(this.arr, Comparator.comparing(Customer::getID));   
         
     }
     
