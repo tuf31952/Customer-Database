@@ -29,6 +29,7 @@ public class Assignment8 {
             cl.set(c, 0);
             System.out.println("x = " + cl.get(0));
             System.out.println("\n\n\n");
+            cl.sort();
             // Test indexOf and update
             System.out.println("Test indexOf and update");
             System.out.println("idx = " + cl.indexOf(34));
@@ -78,7 +79,6 @@ public class Assignment8 {
                 System.out.println("File write successful");
             else
                 System.out.println("File write failed");
-
     
     }
     
